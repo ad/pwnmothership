@@ -47,8 +47,8 @@ pwnagotchi.populateDisplay = function(result){
     $("#face").innerText = result.face;
     $("#status").innerText = result.status;
 
-    $("#friend_face_text").innerText = result.friend_face_text !== null ? result.friend_face_text : "";
-    $("#friend_name_text").innerText = result.friend_name_text !== null ? result.friend_name_text : "";
+    $("#friend_face_text").innerText = result.friend_face_text != "" ? result.friend_face_text : "";
+    $("#friend_name_text").innerText = result.friend_name_text != "" ? result.friend_name_text : "";
 
     $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")";
     $("#mode").innerText = result.mode;
