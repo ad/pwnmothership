@@ -45,7 +45,7 @@ pwnagotchi.populateDisplay = function(result){
 
     $("#name").innerText = result.name + ">";
     $("#face").innerText = result.face;
-    $("#status").innerText = result.status;
+    $("#status").innerText = !result.status ? "" : result.status;
 
     $("#friend_face_text").innerText = !result.friend_face_text ? "" : result.friend_face_text;
     $("#friend_name_text").innerText = !result.friend_name_text ? "" : result.friend_name_text;
