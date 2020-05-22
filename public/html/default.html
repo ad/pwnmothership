@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pwnagotchi</title>
+        <script type="text/javascript" src="/static/js/state-api.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/css/default.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    </head>
+
+    <body>
+        <div id="initialiser" class="gotchiinitialising">
+            Getting ready... (ᴗ˳ᴗ)<div id="snore" style="display: inline" data-index=0 data-zeds=".zZ">.</div>
+        </div>
+
+        <div id="maindisplay" class="gotchicontainer" style="display:none">
+            <div class="headerbar flexible">
+                <div>
+                    <div class="title">Channel:</div>
+                    <div class="channel" id="channel" ></div>
+                </div>
+
+                <div>
+                    <div class="title">APs:</div>
+                    <div class="aps" id="aps"></div>
+                </div>
+
+                <div class="padder"></div>
+                <div>
+                    <div class="title">Uptime: </div>
+                    <div class="uptime" id="uptime"></div>
+                </div>
+            </div>
+            <div class="mainarea flexible">
+                <div class="name" id="name"></div>
+                <div class="face" id="face"></div>
+                <div class="status" id="status"></div>
+            </div>
+            <div class="friendarea flexible">
+                <div class="friend_face_text" id="friend_face_text"></div>
+                <div class="friend_name_text" id="friend_name_text"></div>
+            </div>
+            <div class="systemarea flexible">
+                <div>
+                    <div class="title">CPU: </div>
+                    <div class="cpu" id="cpu"></div>
+                </div>
+                <div>
+                    <div class="title">Temp: </div>
+                    <div class="temperature" id="temperature"></div>
+                </div>
+                <div>
+                    <div class="title">Memory: </div>
+                    <div class="memory" id="memory"></div>
+                </div>
+            </div>
+            <div class="lowerarea flexible">
+                <div>
+                    <div class="title">Pwned: </div>
+                    <div class="shakes" id="shakes"></div>
+                </div>
+                <div class="padder"></div>
+                <div class="mode title" id="mode"></div>
+            </div>
+        </div>
+        <script>
+            window.onload = function() {
+                pwnagotchi.stateRetrieval.initialise(pwnagotchi.populateDisplay);
+            };
+        </script>
+    </body>
+</html>
