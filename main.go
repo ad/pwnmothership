@@ -52,7 +52,7 @@ type Pwnagotchi struct {
 	PwnedLast   string `json:"pwnd_last,omitempty"`
 	PwnedRun    string `json:"pwnd_run,omitempty"`
 	PwnedTotal  int64  `json:"pwnd_tot,omitempty"`
-	PwnedDeauth int64  `json:"pwnd_deauth,omitempty"`
+	PwnedDeauth string `json:"pwnd_deauth,omitempty"`
 
 	TotalMessages  int64 `json:"total_messages,omitempty"`
 	UnreadMessages int64 `json:"unread_messages,omitempty"`
