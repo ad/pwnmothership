@@ -15,7 +15,7 @@ import (
 )
 
 var static *st.FS
-var p = &Pwnagotchi{}
+var p = make(map[string]*Pwnagotchi)
 
 // Pwnagotchi ...
 type Pwnagotchi struct {
@@ -85,15 +85,24 @@ func main() {
 			return
 		}
 
+		hash := r.URL.Query().Get("hash")
+
 		w.Header().Set("Content-Type", "application/json")
 
-		b, err := json.Marshal(p)
-		if err != nil {
-			w.Write([]byte(`{"initialized": false}`))
+		notFound := `{"initialized": false}`
+
+		if d, ok := p[hash]; ok {
+			b, err := json.Marshal(d)
+			if err != nil {
+				w.Write([]byte(notFound))
+				return
+			}
+
+			w.Write(b)
 			return
 		}
 
-		w.Write(b)
+		w.Write([]byte(notFound))
 	})
 
 	http.HandleFunc("/api/set", func(w http.ResponseWriter, r *http.Request) {
@@ -104,14 +113,17 @@ func main() {
 
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
-			panic(err)
+			log.Println(err)
 		}
-		log.Println(string(body))
-		err = json.Unmarshal(body, &p)
-		if err != nil {
-			panic(err)
+		// log.Println(string(body))
+		var d Pwnagotchi
+		if err := json.Unmarshal(body, &d); err != nil {
+			log.Println(err)
+		} else {
+			if d.Fingerprint != "" {
+				p[d.Fingerprint] = &d
+			}
 		}
-		log.Println(p)
 
 		w.Header().Set("Content-Type", "application/json")
 		w.Write([]byte(`{"success": true}`))

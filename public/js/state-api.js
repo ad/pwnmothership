@@ -4,14 +4,23 @@ var pwnagotchi = pwnagotchi || {};
 
 pwnagotchi.stateRetrieval = (function(){
     let _retrieval = function(callback){
+        var hash = window.location.hash.slice(1);
+
+        if (hash == "") {
+            return;
+        }
+
         let xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
                 let response = JSON.parse(this.responseText);
 
-                let initialised = response.initialised !== "false";
+                let initialised = response.initialised === true;
 
                 if (initialised === false){
+                    $("#initialiser").style.display = "block";
+                    $("#maindisplay").style.display = "none";
+
                     const snore = $("#snore");
                     snore.innerText = snore.dataset.zeds.charAt(snore.dataset.index++);
                     if (snore.dataset.index>2) { snore.dataset.index = "0";}
@@ -23,7 +32,7 @@ pwnagotchi.stateRetrieval = (function(){
                 callback(response)
             }
         };
-        xhttp.open("GET", "/api/get", true);
+        xhttp.open("GET", "/api/get?hash="+hash, true);
         xhttp.send();
     };
 
@@ -53,7 +62,7 @@ pwnagotchi.populateDisplay = function(result){
     $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")";
     $("#mode").innerText = result.mode;
 
-    $("#cpu").innerText = (result.cpu * 100).toFixed(2) + "%";
-    $("#temperature").innerText = result.temperature.toFixed(2) +"c";
-    $("#memory").innerText = (result.memory * 100).toFixed(2) + "%"
+    $("#cpu").innerText = !result.cpu ? "" : (result.cpu * 100).toFixed(2) + "%";
+    $("#temperature").innerText = !result.temperature ? "" : result.temperature.toFixed(2) +"c";
+    $("#memory").innerText = !result.memory ? "" : (result.memory * 100).toFixed(2) + "%"
 };
