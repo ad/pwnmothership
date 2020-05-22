@@ -14,7 +14,7 @@ body{font-size:250%}
 .headerbar div{display:inline}
 .channel{width:10em;margin-right:1em}
 .aps{flex-shrink:1;width:10em}
-.padder{flex-grow:1;flex-shrink:1}
+.padder{flex-grow:1;flex-shrink:1;text-align:center;}
 .uptime{flex-shrink:1;width:13em}
 .face{font-family:"Courier New",Courier,monospace;font-size:3em;flex:auto;min-width:4em;max-width:6em}
 .name{font-weight:700}

@@ -59,10 +59,21 @@ pwnagotchi.populateDisplay = function(result){
     $("#friend_face_text").innerText = !result.friend_face_text ? "" : result.friend_face_text;
     $("#friend_name_text").innerText = !result.friend_name_text ? "" : result.friend_name_text;
 
-    $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")";
+    $("#bluetooh").innerText = !result.bluetooth ? "" : "BT "+result.bluetooth;
+
+    if (result.pwnd_deauth) {
+        result.pwnd_run += "/" + pwnd_deauth
+    }
+
+    var pwnd_last = ""
+    if (result.pwnd_last) {
+         pwnd_last = " [" + result.pwnd_last +"]"
+    }
+
+    $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")"+pwnd_last;
     $("#mode").innerText = result.mode;
 
-    $("#cpu").innerText = !result.cpu ? "" : (result.cpu * 100).toFixed(2) + "%";
-    $("#temperature").innerText = !result.temperature ? "" : result.temperature.toFixed(2) +"c";
-    $("#memory").innerText = !result.memory ? "" : (result.memory * 100).toFixed(2) + "%"
+    $("#cpu").innerText = !result.cpu ? "" : (result.cpu * 100).toFixed(0) + "%";
+    $("#temperature").innerText = !result.temperature ? "" : result.temperature.toFixed(0) +"°C";
+    $("#memory").innerText = !result.memory ? "" : (result.memory * 100).toFixed(0) + "%"
 };

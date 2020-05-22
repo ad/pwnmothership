@@ -161,6 +161,7 @@ class PwnMothership(plugins.Plugin):
             "friend_name_text": self.DISPLAY.get('friend_name'),
             "pwnd_last": pwnd_last,
             "pwnd_run": pwnd_run,
+            "pwnd_deauth": self.DISPLAY.get('deauth'),
             "pwnd_tot": pwnd_tot,
             "version": pwnagotchi.__version__,
             "memory": pwnagotchi.mem_usage(),  # Scale 0-1
