@@ -62,7 +62,7 @@ pwnagotchi.populateDisplay = function(result){
     $("#bluetooh").innerText = !result.bluetooth ? "" : "BT "+result.bluetooth;
 
     if (result.pwnd_deauth) {
-        result.pwnd_run += "/" + pwnd_deauth
+        result.pwnd_run += "/" + result.pwnd_deauth
     }
 
     var pwnd_last = ""
