@@ -44,6 +44,7 @@ type Pwnagotchi struct {
 	CPU         float64 `json:"cpu,omitempty"`
 	Memory      float64 `json:"memory,omitempty"`
 	Temperature float64 `json:"temperature,omitempty"`
+	Bluetooth   string  `json:"bluetooth,omitempty"`
 
 	// "peers": [],
 	PeersCount int64 `json:"num_peers,omitempty"`
@@ -115,7 +116,7 @@ func main() {
 		if err != nil {
 			log.Println(err)
 		}
-		// log.Println(string(body))
+
 		var d Pwnagotchi
 		if err := json.Unmarshal(body, &d); err != nil {
 			log.Println(err)
