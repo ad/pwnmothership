@@ -59,7 +59,20 @@ pwnagotchi.populateDisplay = function(result){
     $("#friend_face_text").innerText = !result.friend_face_text ? "" : result.friend_face_text;
     $("#friend_name_text").innerText = !result.friend_name_text ? "" : result.friend_name_text;
 
-    $("#bluetooh").innerText = !result.bluetooth ? "" : "BT "+result.bluetooth;
+    $("#bluetooh").innerText = !result.bluetooth ? "" : "ᛒ"+result.bluetooth;
+
+    if ((result.total_messages && result.total_messages>0) || (result.unread_messages && result.unread_messages>0)) {
+        var mail_text = " ✉";
+        if (result.unread_messages && result.unread_messages>0) {
+            mail_text += result.unread_messages + "/";
+        }
+
+        if (result.total_messages && result.total_messages>0) {
+            mail_text += result.total_messages;
+        }
+
+        $("#mail").innerText = mail_text;
+    }
 
     if (result.pwnd_deauth) {
         result.pwnd_run += "/" + result.pwnd_deauth
