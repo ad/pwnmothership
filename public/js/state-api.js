@@ -53,6 +53,8 @@ pwnagotchi.populateDisplay = function(result){
     $("#uptime").innerText = result.uptime;
 
     $("#name").innerText = result.name + ">";
+    window.document.title = result.name + ">";
+    
     $("#face").innerText = result.face;
     $("#status").innerText = !result.status ? "" : result.status;
 
