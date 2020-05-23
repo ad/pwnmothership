@@ -74,6 +74,8 @@ pwnagotchi.populateDisplay = function(result){
         }
 
         $("#mail").innerText = mail_text;
+    } else {
+        $("#mail").innerText = "";
     }
 
     if (result.pwnd_deauth) {
