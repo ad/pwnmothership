@@ -56,6 +56,9 @@ type Pwnagotchi struct {
 
 	TotalMessages  int64 `json:"total_messages,omitempty"`
 	UnreadMessages int64 `json:"unread_messages,omitempty"`
+
+	Level string `json:"level,omitempty"`
+	Exp   string `json:"exp,omitempty"`
 }
 
 func main() {

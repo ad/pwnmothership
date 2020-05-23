@@ -54,6 +54,13 @@ pwnagotchi.populateDisplay = function(result){
 
     $("#name").innerText = result.name + ">";
     window.document.title = result.name + ">";
+
+    if (result.level) {
+        $("#level").innerText = result.level;
+    }
+    if (result.exp) {
+        $("#exp").innerText = result.exp;
+    }
     
     $("#face").innerText = result.face;
     $("#status").innerText = !result.status ? "" : result.status;
@@ -90,7 +97,7 @@ pwnagotchi.populateDisplay = function(result){
     $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")"+pwnd_last;
     $("#mode").innerText = result.mode;
 
-    $("#cpu").innerText = !result.cpu ? "" : (result.cpu * 100).toFixed(0) + "%";
-    $("#temperature").innerText = !result.temperature ? "" : result.temperature.toFixed(0) +"°C";
-    $("#memory").innerText = !result.memory ? "" : (result.memory * 100).toFixed(0) + "%"
+    $("#cpu").innerText = !result.cpu ? "?%" : (result.cpu * 100).toFixed(0) + "%";
+    $("#temperature").innerText = !result.temperature ? "?" : result.temperature.toFixed(0) +"°C";
+    $("#memory").innerText = !result.memory ? "?%" : (result.memory * 100).toFixed(0) + "%"
 };

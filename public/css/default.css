@@ -12,17 +12,20 @@ body{font-size:250%}
 .flexible{display:flex;flex-wrap:wrap}
 .headerbar{border-bottom:3px solid}
 .headerbar div{display:inline}
-.channel{width:10em;margin-right:1em}
-.aps{flex-shrink:1;width:10em}
+.mainarea{padding-top: 5px;}
+.channel{width:10em;margin-right:0.5em}
+.aps{flex-shrink:1;margin-right:0.5em}
 .padder{flex-grow:1;flex-shrink:1;text-align:center;}
 .uptime{flex-shrink:1;width:13em}
-.face{font-family:"Courier New",Courier,monospace;font-size:3em;flex:auto;min-width:4em;max-width:6em}
-.name{font-weight:700}
+.face{font-family:"Courier New",Courier,monospace;font-size:3em;flex: 1 1 0;min-width:4em}
+.status{flex:2 1 0;flex-wrap:nowrap}
+.name{font-weight:700;padding-right:0.25em}
+.level{padding-right:0.25em;}
+.exp{margin-top:-4px;font-family:monospace;white-space:pre}
 .title{font-weight:700}
-.status{flex:1 1 0;flex-wrap:nowrap}
 .friend_face_text{font-family:"Courier New",Courier,monospace;font-size:1.5em;height:2em;line-height:2em;width:5em;margin-top:auto;margin-bottom:auto}
 .friend_name_text{flex-shrink:1;font-size:.8em;height:2em;line-height:2em;width:16em;padding-left:.5em;margin-top:auto;margin-bottom:auto}
-.systemarea > div{flex-shrink:auto;padding:15px}
+.systemarea > div{flex-shrink:auto;padding-right:20px}
 .systemarea div{display:inline}
 .lowerarea{border-top:3px solid}
 .lowerarea div{display:inline}

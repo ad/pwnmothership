@@ -168,6 +168,8 @@ class PwnMothership(plugins.Plugin):
             "cpu": pwnagotchi.cpu_load(),  # Scale 0-1
             "temperature": pwnagotchi.temperature(),  # Degrees C
             "bluetooth": self.DISPLAY.get('bluetooth'),
+            "level": self.DISPLAY.get('Lv'),
+            "exp": self.DISPLAY.get('Exp'),
         }
 
         # TODO See if there is any way of getting a list of plugins and their associated UI components
