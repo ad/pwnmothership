@@ -17,7 +17,7 @@ body{font-size:250%}
 .aps{flex-shrink:1;margin-right:0.5em}
 .padder{flex-grow:1;flex-shrink:1;text-align:center;}
 .uptime{flex-shrink:1;width:13em}
-.face{font-family:"Courier New",Courier,monospace;font-size:3em;flex: 1 1 0;min-width:4em}
+.face{font-family:"Courier New",Courier,monospace;font-size:3em;flex: 1 1 0;min-width:5em}
 .status{flex:2 1 0;flex-wrap:nowrap}
 .name{font-weight:700;padding-right:0.25em}
 .level{padding-right:0.25em;}
