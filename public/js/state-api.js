@@ -47,6 +47,8 @@ pwnagotchi.stateRetrieval = (function(){
 
 var pwnagotchi = pwnagotchi || {};
 
+var prevStatus = "";
+
 pwnagotchi.populateDisplay = function(result){
     $("#channel").innerText = result.channel_text;
     $("#aps").innerText = result.aps_text;
@@ -63,7 +65,6 @@ pwnagotchi.populateDisplay = function(result){
     }
     
     $("#face").innerText = result.face;
-    $("#status").innerText = !result.status ? "" : result.status;
 
     $("#friend_face_text").innerText = !result.friend_face_text ? "" : result.friend_face_text;
     $("#friend_name_text").innerText = !result.friend_name_text ? "" : result.friend_name_text;
@@ -99,5 +100,23 @@ pwnagotchi.populateDisplay = function(result){
 
     $("#cpu").innerText = !result.cpu ? "?%" : (result.cpu * 100).toFixed(0) + "%";
     $("#temperature").innerText = !result.temperature ? "?" : result.temperature.toFixed(0) +"°C";
-    $("#memory").innerText = !result.memory ? "?%" : (result.memory * 100).toFixed(0) + "%"
+    $("#memory").innerText = !result.memory ? "?%" : (result.memory * 100).toFixed(0) + "%";
+
+    if (result.status) {
+        if (result.status != prevStatus) {
+            //$("#status").innerText = !result.status ? "" : result.status;
+
+            var ul = $('#logs').childNodes;
+
+            if (ul.length > 10) {
+                $('#logs').removeChild(ul[ul.length-1]);
+            }
+
+            prevStatus = result.status;
+            var node = document.createElement('li');
+            var nodeText = document.createTextNode(result.status);
+            node.appendChild(nodeText);
+            $("#logs").prepend(node);
+        }
+    }
 };
