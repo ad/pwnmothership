@@ -134,5 +134,5 @@ func main() {
 		w.Write([]byte(`{"success": true}`))
 	})
 
-	http.ListenAndServe("0.0.0.0:9090", nil)
+	http.ListenAndServe("127.0.0.1:9090", nil)
 }
