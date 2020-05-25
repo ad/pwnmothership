@@ -103,9 +103,7 @@ pwnagotchi.populateDisplay = function(result){
     $("#memory").innerText = !result.memory ? "?%" : (result.memory * 100).toFixed(0) + "%";
 
     if (result.status) {
-        if (result.status != prevStatus) {
-            //$("#status").innerText = !result.status ? "" : result.status;
-
+        if (result.status != prevStatus && result.status != "...") {
             var ul = $('#logs').childNodes;
 
             if (ul.length > 10) {
