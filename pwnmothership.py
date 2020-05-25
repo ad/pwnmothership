@@ -66,7 +66,8 @@ class PwnMothership(plugins.Plugin):
                 res = requests.post(self.options['api_url'],
                                     json=data,
                                     headers=headers,
-                                    timeout=30)
+                                    timeout=30,
+                                    verify=False)
                 json_res = res.json()
                 if not json_res['success']:
                     raise requests.exceptions.RequestException(json_res['message'])
