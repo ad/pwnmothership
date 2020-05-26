@@ -6,7 +6,9 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"net/http"
+	"time"
 
 	st "github.com/ad/pwnmothership/static"
 
@@ -94,6 +96,54 @@ func main() {
 
 		w.Header().Set("Content-Type", "application/json")
 
+		if hash == "test" {
+			d := &Pwnagotchi{
+				Fingerprint: "",
+				Initialised: true,
+
+				Name:   randomString([]string{"pwnagotchi", "username", "test", "pet", "cat", "dog"}),
+				Mode:   randomString([]string{"AUTO", "MANU", "AI"}),
+				Status: randomString([]string{"...", "ololo", "blabla", "Связываюсь с 2020", "Эй, 2020 давай дружить!", "Ждем 5c …", "Хррррр.. (29c)", "Дремлет 19с …", "Осматриваюсь вокруг (3с)", "Просто решил, что 00:12:34:56:78:0a не нужен WiFi! Кхе-кхе)"}),
+
+				Uptime:  randomString([]string{"00:00:01", "12:34:56", "23:45:00"}),
+				Version: "1.5.3",
+				Epoch:   randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+
+				APsOnChannel: randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+				APsName:      randomString([]string{"1 (1)", "2 (5)", "10 (100)"}),
+				APsTotal:     randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+				Channel:      randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+				ChannelName:  randomString([]string{"*", "1", "11"}),
+
+				Face: randomString([]string{"(⇀‿‿↼)", "(≖‿‿≖)", "(◕‿‿◕)", "( ⚆_⚆)", "(☉_☉ )", "( ◕‿◕)", "(◕‿◕ )", "(°▃▃°)", "(⌐■_■)", "(•‿‿•)", "(^‿‿^)", "(ᵔ◡◡ᵔ)", "(✜‿‿✜)", "(♥‿‿♥)", "(☼‿‿☼)", "(≖__≖)", "(-__-)", "(╥☁╥ )", "(ب__ب)", "(☓‿‿☓)", "(#__#)"}),
+
+				FriendFace: randomString([]string{"(⇀‿‿↼)", "(≖‿‿≖)", "(◕‿‿◕)", "( ⚆_⚆)", "(☉_☉ )", "( ◕‿◕)", "(◕‿◕ )", "(°▃▃°)", "(⌐■_■)", "(•‿‿•)", "(^‿‿^)", "(ᵔ◡◡ᵔ)", "(✜‿‿✜)", "(♥‿‿♥)", "(☼‿‿☼)", "(≖__≖)", "(-__-)", "(╥☁╥ )", "(ب__ب)", "(☓‿‿☓)", "(#__#)"}),
+				FriendName: randomString([]string{"username", "test", "pet"}),
+
+				CPU:         0.5,
+				Memory:      0.5,
+				Temperature: 35.5,
+				Bluetooth:   randomString([]string{"-", "C", "NF"}),
+
+				PeersCount: randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+
+				PwnedLast:   randomString([]string{"pwnagotchi", "username", "test", "pet", "cat", "dog"}),
+				PwnedRun:    "2",
+				PwnedTotal:  randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+				PwnedDeauth: "4",
+
+				TotalMessages:  randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+				UnreadMessages: randomInt64([]int64{1, 2, 3, 10, 20, 300}),
+
+				Level: randomString([]string{"-", "1", "11", "50", "99"}),
+				Exp:   randomString([]string{"╷          ╷", "╷▄         ╷", "╷▄▄        ╷", "╷▄▄▄       ╷", "╷▄▄▄▄      ╷", "╷▄▄▄▄▄     ╷", "╷▄▄▄▄▄▄    ╷", "╷▄▄▄▄▄▄▄   ╷", "╷▄▄▄▄▄▄▄▄  ╷", "╷▄▄▄▄▄▄▄▄▄▄╷"}),
+			}
+
+			b, _ := json.Marshal(d)
+			w.Write(b)
+			return
+		}
+
 		notFound := `{"initialized": false}`
 
 		if d, ok := p[hash]; ok {
@@ -135,4 +185,16 @@ func main() {
 	})
 
 	http.ListenAndServe("127.0.0.1:9090", nil)
+}
+
+func randomInt64(list []int64) int64 {
+	rand.Seed(time.Now().UnixNano())
+
+	return list[rand.Intn(len(list))]
+}
+
+func randomString(list []string) string {
+	rand.Seed(time.Now().UnixNano())
+
+	return list[rand.Intn(len(list))]
 }
