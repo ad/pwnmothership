@@ -92,7 +92,7 @@ pwnagotchi.populateDisplay = function(result){
 
     var pwnd_last = ""
     if (result.pwnd_last) {
-         pwnd_last = " [" + result.pwnd_last +"]"
+         pwnd_last = "[" + result.pwnd_last +"]"
     }
 
     $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")"+pwnd_last;
