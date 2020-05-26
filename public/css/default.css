@@ -1,5 +1,5 @@
 body{font-family:"Courier New",Courier,monospace;font-size:85%;background-color: black;color: white;}
-ul#logs {max-height: 7em;padding-left: 0.25em;margin: 0;overflow: scroll;background: linear-gradient(to bottom, #fff 0%, #000 100%); background-clip: text; -webkit-background-clip: text;}
+ul#logs {height: 7em;padding-left: 0.25em;margin: 0;overflow: scroll;background: linear-gradient(to bottom, #fff 0%, #000 100%); background-clip: text; -webkit-background-clip: text;}
 ul#logs li {color: transparent;list-style-type: none;padding: 0;}
 ul#logs li:hover {color: #fff;}
 @media (prefers-color-scheme: light) {
