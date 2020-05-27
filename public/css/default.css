@@ -1,11 +1,24 @@
 body{font-family:"Courier New",Courier,monospace;font-size:85%;background-color: black;color: white;}
-ul#logs {height: 7em;padding-left: 0.25em;margin: 0;overflow: scroll;background: linear-gradient(to bottom, #fff 0%, #000 100%); background-clip: text; -webkit-background-clip: text;}
-ul#logs li {color: transparent;list-style-type: none;padding: 0;}
+ul#logs {height: 7em;padding-left: 0.25em;margin: 0;overflow: scroll;}
+ul#logs li {list-style-type: none;padding: 0;}
+ul#logs li:nth-child(1) {color: #fff;}
+ul#logs li:nth-child(2) {color: #ccc;}
+ul#logs li:nth-child(3) {color: #aaa;}
+ul#logs li:nth-child(4) {color: #888;}
+ul#logs li:nth-child(5) {color: #666;}
+ul#logs li:nth-child(6) {color: #444;}
+ul#logs li:nth-child(n+7) {color: #222;}
 ul#logs li:hover {color: #fff;}
 @media (prefers-color-scheme: light) {
 	body {background-color: white;color: black;}
-	ul#logs {background: linear-gradient(to bottom, #000 0%, #fff 100%);background-clip: text;-webkit-background-clip: text;}
-	ul#logs li {color: transparent;list-style-type: none;padding: 0;}
+	ul#logs li:nth-child(1) {color: red;} 
+	ul#logs li:nth-child(1) {color: #000;}
+	ul#logs li:nth-child(2) {color: #333;}
+	ul#logs li:nth-child(3) {color: #555;}
+	ul#logs li:nth-child(4) {color: #777;}
+	ul#logs li:nth-child(5) {color: #999;}
+	ul#logs li:nth-child(6) {color: #bbb;}
+	ul#logs li:nth-child(n+7) {color: #ddd;}
 	ul#logs li:hover {color: #000000;}
 }
 #initialiser {position: fixed;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);transform: translate(-50%, -50%);text-align: center;}​
