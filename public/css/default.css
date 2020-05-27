@@ -1,4 +1,14 @@
-body{font-family:"Courier New",Courier,monospace;font-size:85%;background-color: black;color: white;}
+@font-face {
+  font-family: 'DejaVu Sans Mono';
+  src: url('/static/font/DejaVuSansMono.eot');
+  src: url('/static/font/DejaVuSansMono.eot?#iefix') format('embedded-opentype'),
+       url('/static/font/DejaVuSansMono.woff2')      format('woff2'),
+       url('/static/font/DejaVuSansMono.woff')       format('woff'),
+       url('/static/font/DejaVuSansMono.ttf')        format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body{font-family:'DejaVu Sans Mono';font-size:85%;background-color: black;color: white;}
 ul#logs {height: 7em;padding-left: 0.25em;margin: 0;overflow: scroll;}
 ul#logs li {list-style-type: none;padding: 0;}
 ul#logs li:nth-child(1) {color: #fff;}
