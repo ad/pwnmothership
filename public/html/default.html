@@ -3,11 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Pwnagotchi</title>
-        <script type="text/javascript" src="/static/js/state-api.js"></script>
+        
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+
         <link rel="stylesheet" type="text/css" href="/static/css/default.css">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <script type="text/javascript" src="/static/js/state-api.js"></script>
     </head>
 
     <body>
@@ -23,11 +29,10 @@
                 <div class="name" id="name"></div>
                 <div class="exp" id="exp"></div>
                 <div class="padder">
-                    <div id="mail"></div>
+                    <span id="mail"></span>
                 </div>
                 <div>
-                    <div class="title">Up: </div>
-                    <div class="uptime" id="uptime"></div>
+                    <span class="title">Up:</span><span class="uptime" id="uptime"></span>
                 </div>
             </div>
             <div class="mainarea flexible">
@@ -44,38 +49,32 @@
             </div>
             <div class="systemarea flexible">
                 <div>
-                    <div class="title">CPU: </div>
-                    <div class="cpu" id="cpu"></div>
+                    <span class="title">CPU:</span><span class="cpu" id="cpu"></span>
                 </div>
                 <div>
-                    <div class="title">Temp: </div>
-                    <div class="temperature" id="temperature"></div>
+                    <span class="title">Temp:</span><span class="temperature" id="temperature"></span>
                 </div>
                 <div>
-                    <div class="title">Mem: </div>
-                    <div class="memory" id="memory"></div>
+                    <span class="title">Mem:</span><span class="memory" id="memory"></span>
                 </div>
                 <div>
-                    <div id="bluetooh"></div>
+                    <span id="bluetooh"></span>
                 </div>
                 <div class="padder"></div>
                 <div>
-                    <div class="mode title" id="mode"></div>
+                    <span class="mode title" id="mode"></span>
                 </div>
             </div>
             <div class="lowerarea flexible">
                 <div>
-                    <div class="title">CH:</div>
-                    <div class="channel" id="channel" ></div>
+                    <span class="title">CH:</span><span class="channel" id="channel" ></span>
                 </div>
                 <div>
-                    <div class="title">APs:</div>
-                    <div class="aps" id="aps"></div>
+                    <span class="title">APs:</span><span class="aps" id="aps"></span>
                 </div>
 
                 <div>
-                    <div class="title">Pwnd: </div>
-                    <div class="shakes" id="shakes"></div>
+                    <span class="title">Pwnd:</span><span class="shakes" id="shakes"></span>
                 </div>
             </div>
         </div>

@@ -51,7 +51,7 @@ var prevStatus = "";
 
 pwnagotchi.populateDisplay = function(result){
     $("#channel").innerText = result.channel_text;
-    $("#aps").innerText = result.aps_text;
+    $("#aps").innerText = result.aps_text.replace(/\s+/g, '');
     $("#uptime").innerText = result.uptime;
 
     $("#name").innerText = result.name + ">";
