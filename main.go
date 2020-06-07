@@ -47,6 +47,7 @@ type Pwnagotchi struct {
 	Memory      float64 `json:"memory,omitempty"`
 	Temperature float64 `json:"temperature,omitempty"`
 	Bluetooth   string  `json:"bluetooth,omitempty"`
+	UPS         string  `json:"ups,omitempty"`
 
 	// "peers": [],
 	PeersCount int64 `json:"num_peers,omitempty"`
@@ -124,6 +125,7 @@ func main() {
 				Memory:      0.5,
 				Temperature: 35.5,
 				Bluetooth:   randomString([]string{"-", "C", "NF"}),
+				UPS:         randomString([]string{"", "UPS 0%", "UPS 1%", "UPS 10%", "UPS 11%", "UPS 100%"}),
 
 				PeersCount: randomInt64([]int64{1, 2, 3, 10, 20, 300}),
 

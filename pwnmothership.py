@@ -169,6 +169,7 @@ class PwnMothership(plugins.Plugin):
             "cpu": pwnagotchi.cpu_load(),  # Scale 0-1
             "temperature": pwnagotchi.temperature(),  # Degrees C
             "bluetooth": self.DISPLAY.get('bluetooth'),
+            "ups": self.DISPLAY.get('ups'),
             "level": self.DISPLAY.get('Lv'),
             "exp": self.DISPLAY.get('Exp'),
         }
