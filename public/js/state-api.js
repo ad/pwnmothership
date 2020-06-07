@@ -106,7 +106,7 @@ pwnagotchi.populateDisplay = function(result){
     $("#memory").innerText = !result.memory ? "?%" : (result.memory * 100).toFixed(0) + "%";
 
     $("#bluetooth").parentNode.style.display = (result.bluetooth) ? 'block' : 'none';
-    $("#bluetooh").innerText = !result.bluetooth ? "" : result.bluetooth;
+    $("#bluetooth").innerText = !result.bluetooth ? "" : result.bluetooth;
 
     $("#ups").parentNode.style.display = (result.ups) ? 'block' : 'none';
     $("#ups").innerText = !result.ups ? "" : result.ups;
