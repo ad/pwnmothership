@@ -96,10 +96,19 @@ pwnagotchi.populateDisplay = function(result){
     $("#shakes").innerText = result.pwnd_run + "(" + result.pwnd_tot + ")"+pwnd_last;
     $("#mode").innerText = result.mode;
 
+    $("#cpu").parentNode.style.display = (result.cpu) ? 'block' : 'none';
     $("#cpu").innerText = !result.cpu ? "?%" : (result.cpu * 100).toFixed(0) + "%";
+
+    $("#temperature").parentNode.style.display = (result.temperature) ? 'block' : 'none';
     $("#temperature").innerText = !result.temperature ? "?" : result.temperature.toFixed(0) +"°C";
+
+    $("#memory").parentNode.style.display = (result.memory) ? 'block' : 'none';
     $("#memory").innerText = !result.memory ? "?%" : (result.memory * 100).toFixed(0) + "%";
-    $("#bluetooh").innerText = !result.bluetooth ? "" : "ᛒ"+result.bluetooth;
+
+    $("#bluetooth").parentNode.style.display = (result.bluetooth) ? 'block' : 'none';
+    $("#bluetooh").innerText = !result.bluetooth ? "" : result.bluetooth;
+
+    $("#ups").parentNode.style.display = (result.ups) ? 'block' : 'none';
     $("#ups").innerText = !result.ups ? "" : result.ups;
 
     if (result.status) {
