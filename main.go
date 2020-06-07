@@ -125,7 +125,7 @@ func main() {
 				Memory:      0.5,
 				Temperature: 35.5,
 				Bluetooth:   randomString([]string{"-", "C", "NF"}),
-				UPS:         randomString([]string{"", "UPS 0%", "UPS 1%", "UPS 10%", "UPS 11%", "UPS 100%"}),
+				UPS:         randomString([]string{"", "0%", "1%", "10%", "11%", "100%"}),
 
 				PeersCount: randomInt64([]int64{1, 2, 3, 10, 20, 300}),
 
