@@ -50,16 +50,16 @@ $ go generate && go build
 ```shell
 $ go get -u github.com/ad/pwnmothership
 
-$ pwnmothership
+$ pwnmothership --addr=:8080
 ```
 
-will start on `127.0.0.1:9090`
+will start on `127.0.0.1:8080`
 
 
 
 ## CHECK
 
-open in browser `127.0.0.1:9090/#test` 
+open in browser `127.0.0.1:8080/#test` 
 
 this will show random data
 
