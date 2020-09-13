@@ -3,6 +3,7 @@
 package main
 
 import (
+	"flag"
 	"encoding/json"
 	"io/ioutil"
 	"log"
@@ -16,8 +17,11 @@ import (
 	_ "github.com/ad/pwnmothership/statik"
 )
 
-var static *st.FS
-var p = make(map[string]*Pwnagotchi)
+var (
+	addr   *string
+	static *st.FS
+	p = make(map[string]*Pwnagotchi)
+)
 
 // Pwnagotchi ...
 type Pwnagotchi struct {
@@ -65,6 +69,9 @@ type Pwnagotchi struct {
 }
 
 func main() {
+	addr = flag.String("addr", ":8080", "listen address")
+	flag.Parse()
+	
 	static := st.NewFS()
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(static.StatikFS)))
@@ -186,7 +193,11 @@ func main() {
 		w.Write([]byte(`{"success": true}`))
 	})
 
-	http.ListenAndServe("127.0.0.1:9090", nil)
+	log.Println("start listening on", *addr)
+	err := http.ListenAndServe(*addr, nil)
+	if err != nil {
+		log.Fatal("ListenAndServe:", err)
+	}
 }
 
 func randomInt64(list []int64) int64 {
