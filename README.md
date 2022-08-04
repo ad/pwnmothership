@@ -14,10 +14,9 @@ You can run it on the **pwnahotchi** itself.
 
 ```shell
 $ git clone https://github.com/ad/pwnmothership.git
-$ go get github.com/rakyll/statik
 $ cd pwnmothership
 $ go build
-$ ./pwnmothership
+$ ./pwnmothership -addr=:8080
 ```
 
 put `pwnmothership.py` into `/usr/local/share/pwnagotchi/installed-plugins` on your **pwnagotchi** and run
@@ -37,20 +36,13 @@ It will be better with [death](https://github.com/dadav/pwnagotchi-custom-plugin
 $ go build
 ```
 
-if you changed static files in `/public` directory, run
-
-```shell
-$ go generate && go build
-```
-
-
 
 ## RUN
 
 ```shell
 $ go get -u github.com/ad/pwnmothership
 
-$ pwnmothership --addr=:8080
+$ pwnmothership -addr=:8080
 ```
 
 will start on `127.0.0.1:8080`
